@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nuestra Boda - Andrés y Analí</title>
+    
+    <!-- Fuentes Elegantes -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Great+Vibes&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- ESTILOS GLOBALES --- */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        :root {
+            --bg-color: #fdfaf3; 
+            --text-dark: #2d2d2d; 
+            --gold-accent: #d4af37; 
+            --text-rosado: #c28891; 
+        }
+
+        body {
+            font-family: 'Montserrat', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-dark);
+            display: flex;
+            justify-content: center;
+            overflow-x: hidden;
+        }
+
+        /* --- CONTENEDOR PRINCIPAL CON FONDO FLORAL EN MOVIMIENTO --- */
+        .container {
+            width: 100%;
+            max-width: 480px;
+            background-color: transparent;
+            background-image: url('fondofloral.jpg'); 
+            background-repeat: repeat;
+            background-size: 400px; 
+            animation: movimientoFondo 40s linear infinite; 
+            margin: 0 auto;
+            padding: 50px 15px 60px 15px;
+            text-align: center;
+            position: relative;
+            box-shadow: 0 0 20px rgba(0,0,0,0.1);
+            min-height: 100vh;
+            z-index: 1;
+        }
+
+        @keyframes movimientoFondo {
+            0% { background-position: 0 0; }
+            100% { background-position: 400px 400px; } 
+        }
+
+        /* --- IMÁGENES --- */
+        .img-tema {
+            width: 90%;
+            max-width: 200px;
+            margin: 15px auto;
+            display: block;
+            filter: drop-shadow(0 5px 10px rgba(0,0,0,0.15));
+        }
+
+        /* Fotografía de la ubicación */
+        .img-ubicacion {
+            width: 90%;
+            max-width: 350px;
+            margin: 10px auto 30px auto;
+            display: block;
+            border-radius: 15px;
+            border: 3px solid #ffffff;
+            outline: 2px solid var(--gold-accent);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            position: relative;
+            z-index: 2;
+        }
+
+        /* --- NUEVOS CUADROS DE TÍTULO ESTILO FLORAL --- */
+        .titulo-seccion {
+            font-family: 'Montserrat', sans-serif;
+            color: #ffffff;
+            background-color: var(--text-rosado);
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin: 40px auto 25px auto; 
+            display: inline-block; 
+            text-align: center;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            padding: 12px 30px;
+            border-radius: 40px;
+            border: 2px solid #ffffff;
+            outline: 2px solid var(--text-rosado);
+            box-shadow: 0 6px 15px rgba(194, 136, 145, 0.4);
+            z-index: 3;
+            position: relative;
+        }
+
+        /* --- CAJAS DE TEXTO BLANCAS --- */
+        .caja-texto {
+            background-color: rgba(255, 255, 255, 0.92); 
+            padding: 25px 20px;
+            margin: 0 auto 20px auto;
+            width: 95%;
+            border-radius: 20px; 
+            border: 1.5px solid var(--gold-accent);
+            position: relative;
+            box-shadow: 0px 5px 20px rgba(0, 0, 0, 0.08);
+            text-align: center;
+            backdrop-filter: blur(5px);
+            z-index: 2;
+        }
+        
+        .caja-texto::before {
+            content: '';
+            position: absolute;
+            top: 6px;
+            left: 6px;
+            right: 6px;
+            bottom: 6px;
+            border: 1px dashed var(--gold-accent);
+            border-radius: 14px;
+            opacity: 0.5;
+            pointer-events: none;
+        }
+
+        .caja-texto p {
+            margin-bottom: 10px;
+            background: none !important;
+            padding: 0 !important;
+        }
+
+        .caja-texto p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* --- TEXTOS PRINCIPALES CON RESPLANDOR --- */
+        .texto-resplandor {
+            text-shadow: 
+                0 0 10px #ffffff,
+                0 0 20px #ffffff,
+                0 0 30px #ffffff,
+                2px 2px 4px rgba(0,0,0,0.2);
+            position: relative;
+            z-index: 2;
+        }
+
+        .nombres-portada {
+            font-family: 'Great Vibes', cursive; 
+            font-size: 4.8rem; 
+            color: var(--text-rosado); 
+            margin-bottom: 10px; 
+            line-height: 1;
+        }
+
+        .titulo-arriba {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 2.2rem;
+            color: var(--text-dark);
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            line-height: 1.1;
+            margin-bottom: 10px;
+        }
+
+        /* --- EFECTOS MÁGICOS --- */
+        .letra-animada {
+            display: inline-block;
+            opacity: 0; 
+            animation: aparecerMagico 0.8s forwards cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        @keyframes aparecerMagico {
+            0% { 
+                opacity: 0; 
+                transform: scale(0.3) translateY(20px); 
+                filter: blur(4px); 
+                color: #ffffff; 
+                text-shadow: 0 0 20px var(--text-rosado); 
+            }
+            50% { 
+                opacity: 1; 
+                transform: scale(1.1); 
+                filter: blur(0px); 
+                color: var(--text-rosado);
+                text-shadow: 0 0 10px #ffffff; 
+            }
+            100% { 
+                opacity: 1; 
+                transform: scale(1) translateY(0); 
+            }
+        }
+
+        /* --- PÉTALOS CAYENDO --- */
+        .petalo-cayendo {
+            position: fixed;
+            top: -10vh;
+            z-index: 5; 
+            user-select: none;
+            pointer-events: none;
+            animation: caer linear forwards;
+            opacity: 0.7;
+            filter: drop-shadow(0 2px 4px rgba(0,0,0,0.15));
+        }
+
+        @keyframes caer {
+            0% { transform: translateY(0) rotate(0deg) translateX(0px); }
+            50% { transform: translateY(55vh) rotate(180deg) translateX(25px); } 
+            100% { transform: translateY(110vh) rotate(360deg) translateX(-25px); }
+        }
+
+        .efecto-respirar { animation: respirar 4s infinite alternate ease-in-out; }
+        .efecto-flotar { animation: flotar 4s infinite alternate ease-in-out; }
+
+        @keyframes respirar {
+            0% { transform: scale(0.95); }
+            100% { transform: scale(1.03); }
+        }
+        @keyframes flotar {
+            0% { transform: translateY(0); }
+            100% { transform: translateY(-10px); }
+        }
+
+        /* --- CUENTA REGRESIVA --- */
+        .countdown {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin: 20px auto;
+            background: rgba(255, 255, 255, 0.92);
+            padding: 20px 10px;
+            border-radius: 20px;
+            border: 1.5px solid var(--gold-accent);
+            width: 95%;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.08);
+            position: relative;
+            z-index: 2;
+        }
+        .time-box span { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; font-weight: 600; color: var(--text-dark); line-height: 1; }
+        .time-box p { font-family: 'Montserrat', sans-serif; font-size: 0.6rem; margin-top: 5px; text-transform: uppercase; letter-spacing: 1px; color: var(--gold-accent); font-weight: bold; }
+
+        /* --- BOTONES --- */
+        .btn, .btn-primario {
+            display: block; 
+            width: fit-content;
+            margin: 15px auto 30px auto;
+            background-color: var(--text-rosado);
+            color: #ffffff;
+            text-decoration: none;
+            padding: 16px 35px;
+            border: 2px solid #ffffff;
+            border-radius: 35px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            box-shadow: 0 6px 15px rgba(194, 136, 145, 0.4);
+            transition: all 0.3s ease;
+            position: relative;
+            z-index: 2;
+        }
+
+        .btn:hover, .btn-primario:hover {
+            background-color: #ffffff;
+            color: var(--text-rosado);
+            border-color: var(--text-rosado);
+            transform: scale(1.05);
+        }
+
+        .btn-primario {
+            animation: respirar 3s infinite ease-in-out;
+        }
+
+        /* --- REPRODUCTOR --- */
+        .play-btn {
+            background: rgba(255,255,255,0.9);
+            color: var(--text-rosado);
+            border: 1.5px solid var(--text-rosado);
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+        }
+    </style>
+</head>
+<body>
+
+    <audio id="musicaFondo" loop>
+        <source src="cancion-boda.mpeg" type="audio/mpeg">
+    </audio>
+    <button class="play-btn" onclick="togglePlay()" id="btnMusica">🎵</button>
+
+    <div class="container">
+        
+        <img src="anillos.png" alt="Anillos" class="img-tema efecto-respirar" style="width: 120px; margin-bottom: 20px;">
+
+        <div class="titulo-arriba texto-resplandor">Nuestro<br>Matrimonio Civil</div>
+
+        <div id="nombreInterior" class="nombres-portada texto-resplandor"></div>
+
+        <img src="pareja.png" alt="Novios" class="img-tema efecto-flotar" style="width: 200px; margin-top: 10px;">
+
+        <div class="caja-texto" style="margin-top: 25px;">
+            <p style="color: var(--text-rosado); font-size: 1.3rem; margin-bottom: 10px; font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 600;">"La historia comienza cuando dos personas que ni soñaban conocerse terminan encontrándose en el instante menos esperado pero en el momento indicado"</p>
+        </div>
+
+        <div class="titulo-seccion">Nuestros Padres</div>
+        <div class="caja-texto" style="padding: 25px 20px;">
+            <p style="color: var(--text-rosado); font-weight: bold; font-family: 'Montserrat', sans-serif; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px;">Padres del Novio</p>
+            <p style="font-family: 'Great Vibes', cursive; font-size: 2.8rem; color: var(--text-dark); margin-bottom: 25px; line-height: 1.1;">Gumercindo Quispe Flores<br>Eulogia Valdez Huari</p>
+            
+            <p style="color: var(--text-rosado); font-weight: bold; font-family: 'Montserrat', sans-serif; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 1px;">Padres de la Novia</p>
+            <p style="font-family: 'Great Vibes', cursive; font-size: 2.8rem; color: var(--text-dark); line-height: 1.1;">Aniceto Huamani Cárdenas<br>Martha Auccapuri Pari</p>
+        </div>
+
+        <div class="titulo-seccion">Nuestros Padrinos</div>
+        <div class="caja-texto" style="padding: 25px 20px;">
+            <p style="font-family: 'Great Vibes', cursive; font-size: 3rem; color: var(--text-dark); line-height: 1.1;">Ruth Yenni Quispe Lloclle<br>Alejandro Medina Quezada</p>
+        </div>
+
+        <div class="titulo-seccion">El Gran Día</div>
+        <div class="caja-texto">
+            <p style="font-size: 1.2rem; font-family: 'Montserrat', sans-serif; font-weight: bold; letter-spacing: 2px;">JUEVES <span style="font-size: 3.5rem; color: var(--text-rosado); margin: 0 10px; font-family: 'Cormorant Garamond', serif; font-weight: 600;">29</span> OCTUBRE</p>
+            <p style="font-family: 'Montserrat', sans-serif; font-size: 1rem; letter-spacing: 2px; font-weight: bold;">2026</p>
+        </div>
+
+        <div class="countdown">
+            <div class="time-box"><span id="dias">00</span><p>Días</p></div>
+            <div class="time-box"><span>:</span></div>
+            <div class="time-box"><span id="horas">00</span><p>Horas</p></div>
+            <div class="time-box"><span>:</span></div>
+            <div class="time-box"><span id="minutos">00</span><p>Minutos</p></div>
+            <div class="time-box"><span>:</span></div>
+            <div class="time-box"><span id="segundos">00</span><p>Segundos</p></div>
+        </div>
+
+        <div class="titulo-seccion">Ubicación</div>
+        <div class="caja-texto">
+            <p style="color: var(--text-rosado); font-size: 1rem; font-weight: bold; font-family: 'Montserrat', sans-serif; text-transform: uppercase; letter-spacing: 1px;">Ceremonia (11:00 AM)</p>
+            <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; margin-bottom: 25px; font-weight: 600;">Municipalidad distrital de Wanchaq</p>
+
+            <p style="color: var(--text-rosado); font-size: 1rem; font-weight: bold; font-family: 'Montserrat', sans-serif; text-transform: uppercase; letter-spacing: 1px;">Recepción</p>
+            <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 600;">Local ubicado en Urb. Reyna de Belén - Wanchaq<br><span style="font-size: 1rem; font-weight: 400; font-style: italic;">(Frente a la puerta principal del terminal terrestre Cusco)</span></p>
+        </div>
+        
+        <!-- FOTOGRAFÍA DE LA UBICACIÓN EN LUGAR DEL BOTÓN -->
+        <img src="ubicacion.jpeg" alt="Foto de la Ubicación" class="img-ubicacion">
+
+        <div class="titulo-seccion">Asistencia</div>
+        
+        <div class="caja-texto" style="margin-top: 20px;">
+            <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 600; line-height: 1.4;">Nos encantará saber que nos acompañarás, permítenos preparar los detalles confirmando tu asistencia.</p>
+        </div>
+        
+        <a href="https://wa.me/51999999999?text=Hola!%20Confirmo%20mi%20asistencia%20a%20la%20boda%20de%20Andrés%20y%20Analí" target="_blank" class="btn-primario">✅ CONFIRMAR ASISTENCIA</a>
+
+        <div class="nombres-portada texto-resplandor" style="font-size: 4rem; margin-top: 40px; margin-bottom: 40px;">¡Te esperamos!</div>
+
+        <img src="sello.png" alt="Sello" class="img-tema efecto-flotar" style="width: 80px; margin-bottom: 20px;">
+
+    </div>
+
+    <script>
+        var audio = document.getElementById("musicaFondo");
+        var isPlaying = false;
+        var btnPlay = document.getElementById("btnMusica");
+        const nombresNovios = "Andrés & Analí";
+
+        function animarTextoMagico(idElemento, texto, delayExtra = 0) {
+            const contenedor = document.getElementById(idElemento);
+            contenedor.innerHTML = ""; 
+            
+            for (let i = 0; i < texto.length; i++) {
+                let span = document.createElement("span");
+                span.innerText = texto[i];
+                span.className = "letra-animada";
+                span.style.animationDelay = (delayExtra + (i * 0.12)) + "s";
+                
+                if (texto[i] === " ") {
+                    span.style.marginRight = "15px";
+                }
+                contenedor.appendChild(span);
+            }
+        }
+
+        window.onload = function() {
+            animarTextoMagico("nombreInterior", nombresNovios, 0.3);
+            setInterval(crearPetalo, 800); 
+        };
+
+        function crearPetalo() {
+            const petalo = document.createElement('div');
+            petalo.classList.add('petalo-cayendo');
+            
+            const iconos = ['🌸', '💮', '✨', '🍃', '💖'];
+            petalo.innerText = iconos[Math.floor(Math.random() * iconos.length)];
+            
+            petalo.style.left = Math.random() * 100 + 'vw';
+            petalo.style.animationDuration = Math.random() * 4 + 6 + 's'; 
+            petalo.style.fontSize = Math.random() * 1 + 0.8 + 'rem';
+            
+            document.body.appendChild(petalo);
+            
+            setTimeout(() => {
+                petalo.remove();
+            }, 10000);
+        }
+
+        function togglePlay() {
+            if (isPlaying) {
+                audio.pause();
+                btnPlay.innerHTML = "🎵";
+            } else {
+                audio.play();
+                btnPlay.innerHTML = "⏸";
+            }
+            isPlaying = !isPlaying;
+        }
+
+        var countDownDate = new Date("Oct 29, 2026 11:00:00").getTime();
+
+        var x = setInterval(function() {
+            var now = new Date().getTime();
+            var distance = countDownDate - now;
+
+            var days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            var hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            var seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("dias").innerHTML = days < 10 ? "0" + days : days;
+            document.getElementById("horas").innerHTML = hours < 10 ? "0" + hours : hours;
+            document.getElementById("minutos").innerHTML = minutes < 10 ? "0" + minutes : minutes;
+            document.getElementById("segundos").innerHTML = seconds < 10 ? "0" + seconds : seconds;
+
+            if (distance < 0) {
+                clearInterval(x);
+                document.querySelector(".countdown").innerHTML = "<p style='font-family: Cormorant Garamond, serif; font-size: 1.6rem; color: var(--text-rosado); font-weight: bold;'>¡Llegó el gran día!</p>"; 
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
