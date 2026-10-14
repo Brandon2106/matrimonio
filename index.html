@@ -8,6 +8,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Alex+Brush&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     
     <style>
+        /* --- ESTILOS GLOBALES --- */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         :root {
@@ -35,7 +36,7 @@
             background-size: 400px; 
             animation: movimientoFondo 40s linear infinite; 
             margin: 0 auto;
-            padding: 50px 15px 60px 15px;
+            padding: 50px 10px 60px 10px;
             text-align: center;
             position: relative;
             box-shadow: 0 0 20px rgba(0,0,0,0.1);
@@ -69,19 +70,18 @@
             z-index: 2;
         }
 
-        /* --- SOLUCIÓN TÍTULOS RESPONSIVOS --- */
         .titulo-seccion {
             font-family: 'Montserrat', sans-serif;
             color: #ffffff;
             background-color: var(--text-rosado);
-            font-size: clamp(0.9rem, 4vw, 1.1rem); /* Tamaño que se adapta sin romperse */
+            font-size: clamp(0.9rem, 4vw, 1.1rem);
             font-weight: 600;
             margin: 40px auto 25px auto; 
-            display: flex; /* Mantiene todo agrupado al centro */
+            display: flex; 
             justify-content: center;
             align-items: center;
-            width: fit-content; /* Se ajusta exactamente al texto */
-            max-width: 90%; /* Evita que se salga de la pantalla en PC */
+            width: fit-content; 
+            max-width: 90%; 
             text-transform: uppercase;
             letter-spacing: 2px;
             padding: 12px 25px;
@@ -91,12 +91,12 @@
             box-shadow: 0 6px 15px rgba(194, 136, 145, 0.4);
             z-index: 3;
             position: relative;
-            white-space: nowrap; /* Evita quiebres de línea feos */
+            white-space: nowrap; 
         }
 
         .caja-texto {
             background-color: rgba(255, 255, 255, 0.92); 
-            padding: 25px 20px;
+            padding: 25px 10px;
             margin: 0 auto 20px auto;
             width: 95%;
             border-radius: 20px; 
@@ -106,6 +106,7 @@
             text-align: center;
             backdrop-filter: blur(5px);
             z-index: 2;
+            overflow: hidden; /* Evita cualquier desborde visual */
         }
         
         .caja-texto::before {
@@ -131,7 +132,6 @@
             margin-bottom: 0;
         }
 
-        /* --- ESTILOS OPTIMIZADOS --- */
         .texto-romantico {
             font-family: 'Cormorant Garamond', serif;
             font-size: 1.35rem;
@@ -146,19 +146,22 @@
             color: var(--text-rosado);
             font-weight: 800;
             font-family: 'Montserrat', sans-serif;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             text-transform: uppercase;
             letter-spacing: 2px;
             margin-bottom: 5px;
         }
 
+        /* --- CORRECCIÓN DEFINITIVA PARA NOMBRES LARGOS --- */
         .nombres-padres {
             font-family: 'Alex Brush', cursive; 
-            font-size: clamp(1.5rem, 6.5vw, 2.5rem); 
+            /* El mínimo bajó a 1.1rem para asegurar que NUNCA se salga de la caja en celulares estrechos */
+            font-size: clamp(1.1rem, 6vw, 2.6rem); 
             color: var(--text-dark); 
-            line-height: 1.2;
+            line-height: 1.3;
             margin-bottom: 25px;
-            white-space: nowrap; 
+            white-space: nowrap; /* Mantiene 2 líneas exactas */
+            width: 100%;
         }
 
         .texto-resplandor {
@@ -183,13 +186,11 @@
             font-family: 'Cormorant Garamond', serif;
             font-size: 2.2rem;
             color: var(--text-dark);
-            text-transform: uppercase;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
             line-height: 1.1;
             margin-bottom: 10px;
         }
 
-        /* DISEÑO DE FECHA TIPO CRUZ */
         .layout-fecha {
             display: flex;
             justify-content: center;
@@ -221,7 +222,6 @@
             line-height: 1;
         }
 
-        /* --- EFECTOS MÁGICOS --- */
         .letra-animada {
             display: inline-block;
             opacity: 0; 
@@ -257,7 +257,6 @@
         @keyframes respirar { 0% { transform: scale(0.95); } 100% { transform: scale(1.03); } }
         @keyframes flotar { 0% { transform: translateY(0); } 100% { transform: translateY(-10px); } }
 
-        /* --- CUENTA REGRESIVA --- */
         .countdown {
             display: flex;
             justify-content: center;
@@ -275,7 +274,6 @@
         .time-box span { font-family: 'Cormorant Garamond', serif; font-size: 2.2rem; font-weight: 600; color: var(--text-dark); line-height: 1; }
         .time-box p { font-family: 'Montserrat', sans-serif; font-size: 0.6rem; margin-top: 5px; text-transform: uppercase; letter-spacing: 1px; color: var(--gold-accent); font-weight: bold; }
 
-        /* --- BOTONES --- */
         .btn, .btn-primario {
             display: block; 
             width: fit-content;
@@ -299,7 +297,6 @@
         .btn:hover, .btn-primario:hover { background-color: #ffffff; color: var(--text-rosado); border-color: var(--text-rosado); transform: scale(1.05); }
         .btn-primario { animation: respirar 3s infinite ease-in-out; }
 
-        /* --- REPRODUCTOR --- */
         .play-btn {
             background: rgba(255,255,255,0.9);
             color: var(--text-rosado);
@@ -328,9 +325,13 @@
         
         <img src="anillos.png" alt="Anillos" class="img-tema efecto-respirar" style="width: 120px; margin-bottom: 20px;">
 
-        <div class="titulo-arriba texto-resplandor">Nuestro<br>Matrimonio Civil</div>
+        <div class="titulo-arriba texto-resplandor" style="font-weight: 600; font-size: 2.5rem; text-transform: none;">¡Nos Casamos!</div>
 
         <div id="nombreInterior" class="nombres-portada texto-resplandor" style="margin-top: 15px; margin-bottom: 15px;"></div>
+
+        <p class="texto-romantico texto-resplandor" style="font-size: 1.2rem; margin-bottom: 20px;">Y tenemos el honor de invitarte a celebrar nuestro Matrimonio</p>
+
+        <div class="titulo-arriba texto-resplandor">Nuestro<br>Matrimonio Civil</div>
 
         <img src="pareja.png" alt="Novios" class="img-tema efecto-flotar" style="width: 200px; margin-top: 10px;">
 
@@ -340,7 +341,6 @@
 
         <div class="titulo-seccion">Nuestros Padres</div>
         
-        <!-- PÁRRAFO DE PADRES AGREGADO -->
         <p class="texto-romantico texto-resplandor" style="font-size: 1.2rem; margin-bottom: 5px;">Con nuestro amor, la presencia de Dios entre nosotros y La Bendición de nuestros padres:</p>
 
         <div class="caja-texto" style="padding: 25px 10px; margin-top: 15px;">
@@ -353,7 +353,6 @@
 
         <div class="titulo-seccion">Nuestros Padrinos</div>
         
-        <!-- PÁRRAFO DE PADRINOS AGREGADO -->
         <p class="texto-romantico texto-resplandor" style="font-size: 1.35rem; margin-bottom: 15px;">Bajo el especial acompañamiento de nuestros padrinos.</p>
 
         <div class="caja-texto" style="padding: 25px 10px;">
@@ -362,7 +361,6 @@
 
         <div class="titulo-seccion">El Gran Día</div>
         
-        <!-- PÁRRAFO Y DISEÑO DE FECHA AGREGADO -->
         <p class="texto-romantico texto-resplandor" style="font-size: 1.35rem; margin-bottom: 10px;">Queremos compartir contigo este día especial y celebrar el inicio de una nueva etapa.<br><span style="font-family: 'Alex Brush', cursive; font-size: 2.8rem; color: var(--text-rosado);">Nuestro Matrimonio</span></p>
 
         <div class="caja-texto" style="padding-top: 15px; padding-bottom: 15px;">
@@ -371,7 +369,7 @@
                 <div class="fecha-centro">29</div>
                 <div class="fecha-lado">11:00<br>A.M.</div>
             </div>
-            <p style="font-family: 'Montserrat', sans-serif; font-size: 0.9rem; letter-spacing: 3px; font-weight: bold; margin-top: 10px;">AGOSTO 2026</p>
+            <p style="font-family: 'Montserrat', sans-serif; font-size: 0.9rem; letter-spacing: 3px; font-weight: bold; margin-top: 10px;">OCTUBRE 2026</p>
         </div>
 
         <div class="countdown">
@@ -393,12 +391,10 @@
             <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 600;">Local ubicado en Urb. Reyna de Belén - Wanchaq<br><span style="font-size: 1rem; font-weight: 400; font-style: italic;">(Frente a la puerta principal del terminal terrestre Cusco)</span></p>
         </div>
         
-        <!-- FOTOGRAFÍA DE LA UBICACIÓN -->
         <img src="ubicacion.jpeg" alt="Foto de la Ubicación" class="img-ubicacion">
 
         <div class="titulo-seccion">Asistencia</div>
         
-        <!-- TEXTO FINAL ROMÁNTICO AGREGADO -->
         <div class="caja-texto" style="margin-top: 20px;">
             <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 600; line-height: 1.5; font-style: italic;">Con alegría en nuestros corazones, queremos compartir con ustedes un día que marcará nuestras vidas para siempre.<br><br>Nos unimos en matrimonio, celebrando el amor que nos ha acompañado y que queremos seguir construyendo juntos.</p>
         </div>
