@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nuestra Boda - Andrés y Analí</title>
+    <title>Nuestra Boda - Andrés y Estefani</title>
     
-    <!-- Fuentes Elegantes: Cambiamos a Alex Brush para una 'A' mayúscula clásica -->
+    <!-- Fuentes Elegantes -->
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Alex+Brush&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     
     <style>
@@ -60,7 +60,6 @@
             filter: drop-shadow(0 5px 10px rgba(0,0,0,0.15));
         }
 
-        /* Fotografía de la ubicación */
         .img-ubicacion {
             width: 90%;
             max-width: 350px;
@@ -131,6 +130,27 @@
 
         .caja-texto p:last-child {
             margin-bottom: 0;
+        }
+
+        /* --- ESTILOS OPTIMIZADOS PARA NOMBRES DE PADRES Y PADRINOS --- */
+        .etiqueta-padres {
+            color: var(--text-rosado);
+            font-weight: 800;
+            font-family: 'Montserrat', sans-serif;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 5px;
+        }
+
+        .nombres-padres {
+            font-family: 'Alex Brush', cursive; 
+            /* Se redujo aún más el tamaño en la versión móvil (4.5vw) para asegurar que no se partan los nombres */
+            font-size: clamp(1.1rem, 4.5vw, 2.2rem); 
+            color: var(--text-dark); 
+            line-height: 1.2;
+            margin-bottom: 25px;
+            white-space: nowrap; /* Evita que el texto salte a la siguiente línea a la fuerza */
         }
 
         /* --- TEXTOS PRINCIPALES CON RESPLANDOR --- */
@@ -311,17 +331,17 @@
         </div>
 
         <div class="titulo-seccion">Nuestros Padres</div>
-        <div class="caja-texto" style="padding: 25px 20px;">
-            <p style="color: var(--text-rosado); font-weight: 800; font-family: 'Montserrat', sans-serif; font-size: 1.15rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 5px;">Padres del Novio</p>
-            <p style="font-family: 'Alex Brush', cursive; font-size: 3.2rem; color: var(--text-dark); margin-bottom: 25px; line-height: 1.1;">Gumercindo Quispe Flores<br>Eulogia Valdez Huari</p>
+        <div class="caja-texto" style="padding: 25px 15px;">
+            <p class="etiqueta-padres">Padres del Novio</p>
+            <p class="nombres-padres" style="margin-bottom: 25px;">Gumercindo Quispe Flores<br>Eulogia Valdez Huari</p>
             
-            <p style="color: var(--text-rosado); font-weight: 800; font-family: 'Montserrat', sans-serif; font-size: 1.15rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 5px;">Padres de la Novia</p>
-            <p style="font-family: 'Alex Brush', cursive; font-size: 3.2rem; color: var(--text-dark); line-height: 1.1;">Aniceto Huamani Cárdenas<br>Martha Auccapuri Pari</p>
+            <p class="etiqueta-padres">Padres de la Novia</p>
+            <p class="nombres-padres" style="margin-bottom: 0;">Aniceto Huamani Cárdenas<br>Martha Auccapuri Pari</p>
         </div>
 
         <div class="titulo-seccion">Nuestros Padrinos</div>
-        <div class="caja-texto" style="padding: 25px 20px;">
-            <p style="font-family: 'Alex Brush', cursive; font-size: 3.4rem; color: var(--text-dark); line-height: 1.1;">Ruth Yenni Quispe Lloclle<br>Alejandro Medina Quezada</p>
+        <div class="caja-texto" style="padding: 25px 15px;">
+            <p class="nombres-padres" style="margin-bottom: 0;">Ruth Yenni Quispe Lloclle<br>Alejandro Medina Quezada</p>
         </div>
 
         <div class="titulo-seccion">El Gran Día</div>
@@ -358,9 +378,9 @@
             <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 600; line-height: 1.4;">Nos encantará saber que nos acompañarás, permítenos preparar los detalles confirmando tu asistencia.</p>
         </div>
         
-        <a href="https://wa.me/51999999999?text=Hola!%20Confirmo%20mi%20asistencia%20a%20la%20boda%20de%20Andrés%20y%20Analí" target="_blank" class="btn-primario">✅ CONFIRMAR ASISTENCIA</a>
+        <a href="https://wa.me/51977559267?text=Hola!%20Confirmo%20mi%20asistencia%20a%20la%20boda%20de%20Andrés%20y%20Estefani" target="_blank" class="btn-primario">✅ CONFIRMAR ASISTENCIA</a>
 
-        <div class="nombres-portada texto-resplandor" style="font-size: 4.5rem; margin-top: 40px; margin-bottom: 40px; font-family: 'Alex Brush', cursive;">¡Te esperamos!</div>
+        <div class="nombres-portada texto-resplandor" style="font-size: 4rem; margin-top: 40px; margin-bottom: 40px; font-family: 'Alex Brush', cursive;">¡Te esperamos!</div>
 
         <img src="sello.png" alt="Sello" class="img-tema efecto-flotar" style="width: 80px; margin-bottom: 20px;">
 
@@ -371,7 +391,8 @@
         var isPlaying = false;
         var btnPlay = document.getElementById("btnMusica");
         
-        const lineasNombres = ["Andrés", "&", "Analí"];
+        // Convertimos los nombres en un arreglo de 3 líneas
+        const lineasNombres = ["Andrés", "&", "Estefani"];
 
         function animarTextoMagicoLineas(idElemento, lineas, delayExtra = 0) {
             const contenedor = document.getElementById(idElemento);
@@ -388,7 +409,7 @@
                     span.className = "letra-animada";
                     span.style.animationDelay = (delayExtra + (letIndex * 0.12)) + "s";
                     
-                    // Hacer la primerísima letra de "Andrés" y "Analí" más grande
+                    // Hacer la primerísima letra de "Andrés" y "Estefani" más grande
                     if (i === 0 && texto !== "&") {
                         span.style.fontSize = "1.2em"; 
                     }
