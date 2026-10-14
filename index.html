@@ -145,12 +145,11 @@
 
         .nombres-padres {
             font-family: 'Alex Brush', cursive; 
-            /* Se redujo aún más el tamaño en la versión móvil (4.5vw) para asegurar que no se partan los nombres */
             font-size: clamp(1.1rem, 4.5vw, 2.2rem); 
             color: var(--text-dark); 
             line-height: 1.2;
             margin-bottom: 25px;
-            white-space: nowrap; /* Evita que el texto salte a la siguiente línea a la fuerza */
+            white-space: nowrap; 
         }
 
         /* --- TEXTOS PRINCIPALES CON RESPLANDOR --- */
@@ -311,7 +310,7 @@
 <body>
 
     <audio id="musicaFondo" loop>
-        <source src="cancion-boda.mp3" type="audio/mpeg">
+        <source src="cancion-boda.mpeg" type="audio/mpeg">
     </audio>
     <button class="play-btn" onclick="togglePlay()" id="btnMusica">🎵</button>
 
@@ -333,7 +332,7 @@
         <div class="titulo-seccion">Nuestros Padres</div>
         <div class="caja-texto" style="padding: 25px 15px;">
             <p class="etiqueta-padres">Padres del Novio</p>
-            <p class="nombres-padres" style="margin-bottom: 25px;">Gumercindo Quispe Flores<br>Eulogia Valdez Huari</p>
+            <p class="nombres-padres">Gumercindo Quispe Flores<br>Eulogia Valdez Huari</p>
             
             <p class="etiqueta-padres">Padres de la Novia</p>
             <p class="nombres-padres" style="margin-bottom: 0;">Aniceto Huamani Cárdenas<br>Martha Auccapuri Pari</p>
@@ -391,8 +390,8 @@
         var isPlaying = false;
         var btnPlay = document.getElementById("btnMusica");
         
-        // Convertimos los nombres en un arreglo de 3 líneas
-        const lineasNombres = ["Andrés", "&", "Estefani"];
+        // Cambiado el "&" por una "y" para que la fuente lo muestre hermoso y legible
+        const lineasNombres = ["Andrés", "y", "Estefani"];
 
         function animarTextoMagicoLineas(idElemento, lineas, delayExtra = 0) {
             const contenedor = document.getElementById(idElemento);
@@ -410,7 +409,8 @@
                     span.style.animationDelay = (delayExtra + (letIndex * 0.12)) + "s";
                     
                     // Hacer la primerísima letra de "Andrés" y "Estefani" más grande
-                    if (i === 0 && texto !== "&") {
+                    // Comprobamos que no sea la "y" conectora
+                    if (i === 0 && texto !== "y") {
                         span.style.fontSize = "1.2em"; 
                     }
                     
