@@ -5,11 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nuestra Boda - Andrés y Estefani</title>
     
-    <!-- Fuentes Elegantes -->
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Alex+Brush&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
     
     <style>
-        /* --- ESTILOS GLOBALES --- */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         
         :root {
@@ -28,7 +26,6 @@
             overflow-x: hidden;
         }
 
-        /* --- CONTENEDOR PRINCIPAL CON FONDO FLORAL EN MOVIMIENTO --- */
         .container {
             width: 100%;
             max-width: 480px;
@@ -51,7 +48,6 @@
             100% { background-position: 400px 400px; } 
         }
 
-        /* --- IMÁGENES --- */
         .img-tema {
             width: 90%;
             max-width: 200px;
@@ -73,28 +69,31 @@
             z-index: 2;
         }
 
-        /* --- CUADROS DE TÍTULO ESTILO FLORAL --- */
+        /* --- SOLUCIÓN TÍTULOS RESPONSIVOS --- */
         .titulo-seccion {
             font-family: 'Montserrat', sans-serif;
             color: #ffffff;
             background-color: var(--text-rosado);
-            font-size: 1.1rem;
+            font-size: clamp(0.9rem, 4vw, 1.1rem); /* Tamaño que se adapta sin romperse */
             font-weight: 600;
             margin: 40px auto 25px auto; 
-            display: inline-block; 
-            text-align: center;
+            display: flex; /* Mantiene todo agrupado al centro */
+            justify-content: center;
+            align-items: center;
+            width: fit-content; /* Se ajusta exactamente al texto */
+            max-width: 90%; /* Evita que se salga de la pantalla en PC */
             text-transform: uppercase;
-            letter-spacing: 3px;
-            padding: 12px 30px;
+            letter-spacing: 2px;
+            padding: 12px 25px;
             border-radius: 40px;
             border: 2px solid #ffffff;
             outline: 2px solid var(--text-rosado);
             box-shadow: 0 6px 15px rgba(194, 136, 145, 0.4);
             z-index: 3;
             position: relative;
+            white-space: nowrap; /* Evita quiebres de línea feos */
         }
 
-        /* --- CAJAS DE TEXTO BLANCAS --- */
         .caja-texto {
             background-color: rgba(255, 255, 255, 0.92); 
             padding: 25px 20px;
@@ -132,7 +131,17 @@
             margin-bottom: 0;
         }
 
-        /* --- ESTILOS OPTIMIZADOS PARA NOMBRES DE PADRES Y PADRINOS --- */
+        /* --- ESTILOS OPTIMIZADOS --- */
+        .texto-romantico {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.35rem;
+            line-height: 1.6;
+            color: var(--text-dark);
+            font-style: italic;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
         .etiqueta-padres {
             color: var(--text-rosado);
             font-weight: 800;
@@ -145,14 +154,13 @@
 
         .nombres-padres {
             font-family: 'Alex Brush', cursive; 
-            font-size: clamp(1.1rem, 4.5vw, 2.2rem); 
+            font-size: clamp(1.5rem, 6.5vw, 2.5rem); 
             color: var(--text-dark); 
             line-height: 1.2;
             margin-bottom: 25px;
             white-space: nowrap; 
         }
 
-        /* --- TEXTOS PRINCIPALES CON RESPLANDOR --- */
         .texto-resplandor {
             text-shadow: 
                 0 0 10px #ffffff,
@@ -181,6 +189,38 @@
             margin-bottom: 10px;
         }
 
+        /* DISEÑO DE FECHA TIPO CRUZ */
+        .layout-fecha {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px 0;
+            border-top: 1px solid var(--gold-accent);
+            border-bottom: 1px solid var(--gold-accent);
+            padding: 10px 0;
+            width: 90%;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .fecha-lado {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 1.3rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            flex: 1;
+        }
+
+        .fecha-centro {
+            font-family: 'Cormorant Garamond', serif;
+            font-size: 3.5rem;
+            color: var(--text-rosado);
+            padding: 0 20px;
+            border-left: 1px solid var(--gold-accent);
+            border-right: 1px solid var(--gold-accent);
+            line-height: 1;
+        }
+
         /* --- EFECTOS MÁGICOS --- */
         .letra-animada {
             display: inline-block;
@@ -189,27 +229,11 @@
         }
 
         @keyframes aparecerMagico {
-            0% { 
-                opacity: 0; 
-                transform: scale(0.3) translateY(20px); 
-                filter: blur(4px); 
-                color: #ffffff; 
-                text-shadow: 0 0 20px var(--text-rosado); 
-            }
-            50% { 
-                opacity: 1; 
-                transform: scale(1.1); 
-                filter: blur(0px); 
-                color: var(--text-rosado);
-                text-shadow: 0 0 10px #ffffff; 
-            }
-            100% { 
-                opacity: 1; 
-                transform: scale(1) translateY(0); 
-            }
+            0% { opacity: 0; transform: scale(0.3) translateY(20px); filter: blur(4px); color: #ffffff; text-shadow: 0 0 20px var(--text-rosado); }
+            50% { opacity: 1; transform: scale(1.1); filter: blur(0px); color: var(--text-rosado); text-shadow: 0 0 10px #ffffff; }
+            100% { opacity: 1; transform: scale(1) translateY(0); }
         }
 
-        /* --- PÉTALOS CAYENDO --- */
         .petalo-cayendo {
             position: fixed;
             top: -10vh;
@@ -230,14 +254,8 @@
         .efecto-respirar { animation: respirar 4s infinite alternate ease-in-out; }
         .efecto-flotar { animation: flotar 4s infinite alternate ease-in-out; }
 
-        @keyframes respirar {
-            0% { transform: scale(0.95); }
-            100% { transform: scale(1.03); }
-        }
-        @keyframes flotar {
-            0% { transform: translateY(0); }
-            100% { transform: translateY(-10px); }
-        }
+        @keyframes respirar { 0% { transform: scale(0.95); } 100% { transform: scale(1.03); } }
+        @keyframes flotar { 0% { transform: translateY(0); } 100% { transform: translateY(-10px); } }
 
         /* --- CUENTA REGRESIVA --- */
         .countdown {
@@ -278,16 +296,8 @@
             z-index: 2;
         }
 
-        .btn:hover, .btn-primario:hover {
-            background-color: #ffffff;
-            color: var(--text-rosado);
-            border-color: var(--text-rosado);
-            transform: scale(1.05);
-        }
-
-        .btn-primario {
-            animation: respirar 3s infinite ease-in-out;
-        }
+        .btn:hover, .btn-primario:hover { background-color: #ffffff; color: var(--text-rosado); border-color: var(--text-rosado); transform: scale(1.05); }
+        .btn-primario { animation: respirar 3s infinite ease-in-out; }
 
         /* --- REPRODUCTOR --- */
         .play-btn {
@@ -320,17 +330,20 @@
 
         <div class="titulo-arriba texto-resplandor">Nuestro<br>Matrimonio Civil</div>
 
-        <!-- TÍTULO ESCRITO MÁGICAMENTE AL CARGAR EN 3 LÍNEAS -->
         <div id="nombreInterior" class="nombres-portada texto-resplandor" style="margin-top: 15px; margin-bottom: 15px;"></div>
 
         <img src="pareja.png" alt="Novios" class="img-tema efecto-flotar" style="width: 200px; margin-top: 10px;">
 
         <div class="caja-texto" style="margin-top: 25px;">
-            <p style="color: var(--text-rosado); font-size: 1.3rem; margin-bottom: 10px; font-family: 'Cormorant Garamond', serif; font-style: italic; font-weight: 600;">"La historia comienza cuando dos personas que ni soñaban conocerse terminan encontrándose en el instante menos esperado pero en el momento indicado"</p>
+            <p class="texto-romantico">"La historia comienza cuando dos personas que ni soñaban conocerse terminan encontrándose en el instante menos esperado pero en el momento indicado"</p>
         </div>
 
         <div class="titulo-seccion">Nuestros Padres</div>
-        <div class="caja-texto" style="padding: 25px 15px;">
+        
+        <!-- PÁRRAFO DE PADRES AGREGADO -->
+        <p class="texto-romantico texto-resplandor" style="font-size: 1.2rem; margin-bottom: 5px;">Con nuestro amor, la presencia de Dios entre nosotros y La Bendición de nuestros padres:</p>
+
+        <div class="caja-texto" style="padding: 25px 10px; margin-top: 15px;">
             <p class="etiqueta-padres">Padres del Novio</p>
             <p class="nombres-padres">Gumercindo Quispe Flores<br>Eulogia Valdez Huari</p>
             
@@ -339,14 +352,26 @@
         </div>
 
         <div class="titulo-seccion">Nuestros Padrinos</div>
-        <div class="caja-texto" style="padding: 25px 15px;">
+        
+        <!-- PÁRRAFO DE PADRINOS AGREGADO -->
+        <p class="texto-romantico texto-resplandor" style="font-size: 1.35rem; margin-bottom: 15px;">Bajo el especial acompañamiento de nuestros padrinos.</p>
+
+        <div class="caja-texto" style="padding: 25px 10px;">
             <p class="nombres-padres" style="margin-bottom: 0;">Ruth Yenni Quispe Lloclle<br>Alejandro Medina Quezada</p>
         </div>
 
         <div class="titulo-seccion">El Gran Día</div>
-        <div class="caja-texto">
-            <p style="font-size: 1.2rem; font-family: 'Montserrat', sans-serif; font-weight: bold; letter-spacing: 2px;">JUEVES <span style="font-size: 3.5rem; color: var(--text-rosado); margin: 0 10px; font-family: 'Cormorant Garamond', serif; font-weight: 600;">29</span> OCTUBRE</p>
-            <p style="font-family: 'Montserrat', sans-serif; font-size: 1rem; letter-spacing: 2px; font-weight: bold;">2026</p>
+        
+        <!-- PÁRRAFO Y DISEÑO DE FECHA AGREGADO -->
+        <p class="texto-romantico texto-resplandor" style="font-size: 1.35rem; margin-bottom: 10px;">Queremos compartir contigo este día especial y celebrar el inicio de una nueva etapa.<br><span style="font-family: 'Alex Brush', cursive; font-size: 2.8rem; color: var(--text-rosado);">Nuestro Matrimonio</span></p>
+
+        <div class="caja-texto" style="padding-top: 15px; padding-bottom: 15px;">
+            <div class="layout-fecha">
+                <div class="fecha-lado">JUEVES</div>
+                <div class="fecha-centro">29</div>
+                <div class="fecha-lado">11:00<br>A.M.</div>
+            </div>
+            <p style="font-family: 'Montserrat', sans-serif; font-size: 0.9rem; letter-spacing: 3px; font-weight: bold; margin-top: 10px;">AGOSTO 2026</p>
         </div>
 
         <div class="countdown">
@@ -373,8 +398,9 @@
 
         <div class="titulo-seccion">Asistencia</div>
         
+        <!-- TEXTO FINAL ROMÁNTICO AGREGADO -->
         <div class="caja-texto" style="margin-top: 20px;">
-            <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.4rem; font-weight: 600; line-height: 1.4;">Nos encantará saber que nos acompañarás, permítenos preparar los detalles confirmando tu asistencia.</p>
+            <p style="font-family: 'Cormorant Garamond', serif; font-size: 1.3rem; font-weight: 600; line-height: 1.5; font-style: italic;">Con alegría en nuestros corazones, queremos compartir con ustedes un día que marcará nuestras vidas para siempre.<br><br>Nos unimos en matrimonio, celebrando el amor que nos ha acompañado y que queremos seguir construyendo juntos.</p>
         </div>
         
         <a href="https://wa.me/51977559267?text=Hola!%20Confirmo%20mi%20asistencia%20a%20la%20boda%20de%20Andrés%20y%20Estefani" target="_blank" class="btn-primario">✅ CONFIRMAR ASISTENCIA</a>
@@ -390,7 +416,6 @@
         var isPlaying = false;
         var btnPlay = document.getElementById("btnMusica");
         
-        // Cambiado el "&" por una "y" para que la fuente lo muestre hermoso y legible
         const lineasNombres = ["Andrés", "y", "Estefani"];
 
         function animarTextoMagicoLineas(idElemento, lineas, delayExtra = 0) {
@@ -408,15 +433,9 @@
                     span.className = "letra-animada";
                     span.style.animationDelay = (delayExtra + (letIndex * 0.12)) + "s";
                     
-                    // Hacer la primerísima letra de "Andrés" y "Estefani" más grande
-                    // Comprobamos que no sea la "y" conectora
-                    if (i === 0 && texto !== "y") {
-                        span.style.fontSize = "1.2em"; 
-                    }
+                    if (i === 0 && texto !== "y") { span.style.fontSize = "1.2em"; }
+                    if (texto[i] === " ") { span.style.marginRight = "15px"; }
                     
-                    if (texto[i] === " ") {
-                        span.style.marginRight = "15px";
-                    }
                     divLinea.appendChild(span);
                     letIndex++;
                 }
@@ -432,19 +451,13 @@
         function crearPetalo() {
             const petalo = document.createElement('div');
             petalo.classList.add('petalo-cayendo');
-            
             const iconos = ['🌸', '💮', '✨', '🍃', '💖'];
             petalo.innerText = iconos[Math.floor(Math.random() * iconos.length)];
-            
             petalo.style.left = Math.random() * 100 + 'vw';
             petalo.style.animationDuration = Math.random() * 4 + 6 + 's'; 
             petalo.style.fontSize = Math.random() * 1 + 0.8 + 'rem';
-            
             document.body.appendChild(petalo);
-            
-            setTimeout(() => {
-                petalo.remove();
-            }, 10000);
+            setTimeout(() => { petalo.remove(); }, 10000);
         }
 
         function togglePlay() {
